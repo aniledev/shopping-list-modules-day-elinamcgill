@@ -7,9 +7,8 @@ let hideCheckedItems = false;
 
 function findById(id) {
   // use find method to find where id matches the generated cuid
-  let query = items.find((id) => item.id === id);
+  let query = items.find((item) => item.id === id);
   return query;
-
   // specific item from the store where condition is met
 }
 
@@ -27,7 +26,7 @@ function addItem(name) {
 
 function findAndToggleChecked(id) {
   // fetch item using find method
-  this.findById(id).checked = !this.findById(id).checked;
+  findById(id).checked = !findById(id).checked;
   //toggle checked attribute of item with this item
 }
 
@@ -49,6 +48,10 @@ function findAndDelete(id) {
   items.splice(itemToRemove, 1);
 }
 
+const toggleCheckedFilter = function () {
+  this.hideCheckedItems = !this.hideCheckedItems;
+};
+
 export default {
   items,
   hideCheckedItems,
@@ -57,4 +60,5 @@ export default {
   findAndToggleChecked,
   findAndUpdateName,
   findAndDelete,
+  toggleCheckedFilter,
 };
